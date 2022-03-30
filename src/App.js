@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Quotes from "./Components/Quotes.json";
+import React, {userState, useState} from "react";
+import QuoteFrame from './Components/Quoteframe';
+import Button from './Components/Button';
 
 function App() {
+  
+  let quoteNumber = Math.floor(Math.random() * Object.keys(Quotes.quotes).length);
+
+  const [quote, setQuote] = useState(Quotes.quotes[quoteNumber]);
+  
+
+ 
+
+  function changeQuote(){
+    quoteNumber = Math.floor(Math.random() * Object.keys(Quotes.quotes).length);
+    setQuote(Quotes.quotes[quoteNumber]);
+    
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{backgroundColor: "blue"}} >
+        <QuoteFrame text={quote}/>
+        <Button another={changeQuote}/>
+      </div>
     </div>
   );
 }
