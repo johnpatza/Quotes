@@ -1,6 +1,6 @@
 import './App.css';
 import Quotes from "./Components/Quotes.json";
-import React, {userState, useState} from "react";
+import React, {useState} from "react";
 import QuoteFrame from './Components/Quoteframe';
 import Button from './Components/Button';
 
